@@ -1,7 +1,5 @@
 {% extends 'blog/base.html' %}
 
-
-
 {% block content %}
 <div class="post">
     {% if post.published_date %}
@@ -23,4 +21,20 @@
     <h1>{{post.title}}</h1>
     <p>{{post.text|linebreaksbr}}</p>
 </div>
+
+<hr>
+<!-- 포스트에 댓글 추가 -->
+<a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
+
+<!-- 댓글 보여주기-->
+{% for comment in post.comments.all %}
+<div class="comment">
+    <div class="date">{{ comment.create_date }}</div>
+    <strong>{{ comment.author}}</strong>
+    <p> {{comment.text|linebreaks}}</p>
+</div>
+{% empty%}
+<p> 아직 댓글이 없어요 :(</p>
+{% endfor %}
+
 {% endblock %}
