@@ -33,7 +33,5 @@ class Comment(models.Model):
         self.approved_comment = True
         self.save()
 
-    # 승인된 댓글 개수만 보이게
-
     def __str__(self):
         return self.text
