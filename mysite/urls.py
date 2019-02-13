@@ -17,7 +17,6 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 
-# 로그인 뷰 추가
 from django.contrib.auth import views
 
 urlpatterns = [
@@ -26,6 +25,6 @@ urlpatterns = [
     url(r'^accounts/logout/$', views.logout,
         name='logout', kwargs={'next_page': '/'}),
     url(r'', include('blog.urls')),
-    
+
     url(r'^superlists/', include('superlists.urls')),
 ]
