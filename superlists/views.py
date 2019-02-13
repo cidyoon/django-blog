@@ -7,5 +7,5 @@ from django.http import HttpResponse, JsonResponse
 def super_list(request):
     return JsonResponse({
         'message': 'hello python',
-        'items': ['파이썬', '장고', 'AWS', 'Azure'],
+        'items': ['AWS', 'Azure'],
     }, json_dumps_params={'ensure_ascii': True})
